@@ -425,7 +425,6 @@ def download(config, url: str, access_token: str, data, destination_file,
             file_size = sys.getsizeof(response.content)
         else:
             for chunk in response.iter_content(chunk_size=buffer_size):
-                print(chunk)
                 destination_file.write(chunk)
                 destination_file.flush()
                 print("FLUSHING THE FILE")

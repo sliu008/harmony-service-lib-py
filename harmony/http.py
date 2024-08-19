@@ -431,6 +431,12 @@ def download(config, url: str, access_token: str, data, destination_file,
             print("FINISH THE FOR LOOP")
             os.fsync(destination_file.fileno())
             print(destination_file.name)
+
+            if os.path.exists(destination_file.name):
+                print("The path exists.")
+            else:
+                print("The path does not exist.")
+            
             file_size = os.path.getsize(destination_file.name)
 
         time_diff = datetime.datetime.now() - start_time

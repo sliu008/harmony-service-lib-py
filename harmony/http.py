@@ -425,6 +425,7 @@ def download(config, url: str, access_token: str, data, destination_file,
             file_size = sys.getsizeof(response.content)
         else:
             for chunk in response.iter_content(chunk_size=buffer_size):
+                print(chunk)
                 destination_file.write(chunk)
                 destination_file.flush()
                 print("FLUSHING THE FILE")
@@ -436,7 +437,7 @@ def download(config, url: str, access_token: str, data, destination_file,
                 print("The path exists.")
             else:
                 print("The path does not exist.")
-            
+
             file_size = os.path.getsize(destination_file.name)
 
         time_diff = datetime.datetime.now() - start_time

@@ -429,7 +429,10 @@ def download(config, url: str, access_token: str, data, destination_file,
                 destination_file.flush()
                 print("FLUSHING THE FILE")
             print("FINISH THE FOR LOOP")
+            os.fsync(destination_file.fileno())
+            print(destination_file.name)
             file_size = os.path.getsize(destination_file.name)
+
         time_diff = datetime.datetime.now() - start_time
         duration_ms = int(round(time_diff.total_seconds() * 1000))
         duration_logger = build_logger(config)

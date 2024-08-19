@@ -429,6 +429,7 @@ def download(config, url: str, access_token: str, data, destination_file,
                 destination_file.flush()
                 print("FLUSHING THE FILE")
             print("FINISH THE FOR LOOP")
+            destination_file.flush()
             os.fsync(destination_file.fileno())
             print(destination_file.name)
 
